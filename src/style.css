@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+
+/* Local font faces */
+@font-face {
+  font-family: 'SabonLTPro-Roman';
+  src: url('/fonts/SabonLTPro-Roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SabonLTPro-Roman';
+  src: url('/fonts/SabonLTPro-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'SabonLTPro-Roman', serif;
+  }
+  
+  /* Apply heading font to all headings */
+  h1, h2, h3, h4, h5, h6, button {
+    font-family: 'Tenor Sans', serif;
+  }
+  
+  /* Apply body font to paragraphs and descriptions */
+  p, li, span {
+    font-family: 'SabonLTPro-Roman', serif;
+  }
+
+  p{
+    color: #727270;
+  }
+  
+  /* Keep buttons and UI elements with sans-serif */
+  input, select, textarea {
+    font-family: 'SabonLTPro-Roman', serif;
+  }
+  
+  /* Prevent image orientation changes - ignore EXIF orientation data */
+  img {
+    image-orientation: none !important;
+    -webkit-image-orientation: none !important;
+  }
+  
+  /* Ensure images maintain their aspect ratio */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent rotation transforms on images */
+  img[style*="rotate("] {
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #560216;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #440114;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#560216] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-[#440114] hover:scale-105 hover:shadow-xl shadow-[#560216]/20;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-[#560216] text-[#560216] px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-[#560216] hover:text-white hover:shadow-lg shadow-[#560216]/20;
+  }
+  
+  .section-padding {
+    @apply px-4 py-16 sm:px-6 md:px-[8%] lg:px-[10%] xl:px-[12%] 2xl:px-[15%];
+  }
+  
+  .text-primary {
+    @apply text-[#560216];
+  }
+  
+  .bg-primary {
+    @apply bg-[#560216];
+  }
+
+  /* Card hover - subtle lift + shadow */
+  .card-hover {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  }
+
+  /* Image zoom with soft overlay */
+  .image-zoom {
+    position: relative;
+    overflow: hidden;
+  }
+  .image-zoom img {
+    transition: transform 0.5s ease;
+    will-change: transform;
+  }
+  .image-zoom::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 120% at 50% 50%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .no-rotate {
+    image-orientation: none !important;
+    -webkit-image-orientation: none !important;
+    transform: rotate(0deg) !important;
+    -webkit-transform: rotate(0deg) !important;
+  }
+  
+  .image-zoom:hover img { transform: scale(1.06); }
+  .image-zoom:hover::after { opacity: 1; }
+
+  /* Float effect */
+  .hover-float { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .hover-float:hover { transform: translateY(-8px); box-shadow: 0 20px 44px rgba(0,0,0,0.16); }
+}
+
+@layer utilities {
+  /* Smooth hover effects */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Professional transitions */
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-fast {
+    transition: all 0.2s ease;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
