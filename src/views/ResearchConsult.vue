@@ -10,7 +10,7 @@
             <h1
               class="text-3xl sm:text-4xl md:text-5xl text-[#560216] mb-4 sm:mb-6 font-bold px-4"
             >
-              EVERYTHING YOU NEED ALL IN ONE PLACE
+              SUITE OF SERVICES AVALIABLE
             </h1>
             <!-- <p class="text-xl text-gray-600 max-w-4xl mx-auto">
             Our expert research and consultation services help businesses make informed decisions about their workspace needs.
@@ -26,21 +26,23 @@
               class="relative rounded-lg overflow-hidden shadow-lg group cursor-pointer h-56 sm:h-60 md:h-64 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
             >
               <img
+                @click="openModal(service)"
                 :src="service.image"
                 :alt="service.title"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div
-                class="absolute inset-0 flex flex-col items-center justify-center text-center backdrop-blur text-white m-[8%] sm:m-[10%] rounded-lg shadow-2xl p-3 sm:p-4 transition-all duration-300 group-hover:m-[6%] group-hover:sm:m-[8%]"
+                class="absolute inset-0 flex flex-col items-center justify-center text-start text-white m-[8%] sm:m-[10%] p-3 sm:p-4 transition-all duration-300 group-hover:m-[6%] group-hover:sm:m-[8%] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                @click="openModal(service)"
               >
                 <h3
-                  class="text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4 text-center px-1 font-bold leading-tight transition-colors duration-300 group-hover:text-[#440114]"
+                  class="text-xl sm:text-2xl md:text-3xl mb-3 sm:mb-4 text-center px-1 font-bold leading-tight transition-colors duration-300 group-hover:text-[#440114] group-hover:drop-shadow-[0_2px_4px_white]"
                 >
                   {{ service.title }}
                 </h3>
                 <button
                   @click="openModal(service)"
-                  class="bg-[#560216] text-white px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm hover:bg-[#440114] transition-all hover:scale-105"
+                  class="bg-[#560216] text-white px-4 sm:px-5 md:px-10 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm hover:bg-[#440114] transition-all hover:scale-105 cursor-pointer"
                 >
                   Learn More
                 </button>
@@ -64,12 +66,12 @@
 
         <div class="relative z-10 text-center px-4 sm:px-6">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-8xl mb-4 mt-[15%] sm:mb-5 text-[#560216] border-2 sm:border-3 md:border-4 border-[#560216] px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-8xl mb-4 sm:mb-5 border-2 sm:border-3 md:border-4 text-white border-white px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             IDEAS TO EXECUTION
           </h1>
           <p
-            class="text-lg sm:text-xl md:text-2xl opacity-90 text-white italic px-4 mt-3 sm:mt-4"
+            class="text-xl sm:text-xl md:text-2xl opacity-90 italic px-4 mt-3 sm:mt-4 tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             At iris spaces, we offer services that help your brands grow smarter
           </p>
@@ -140,7 +142,7 @@
                 >
                   <p
                     v-if="selectedService?.description"
-                    class="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line text-center px-2"
+                    class="text-gray-700 text-sm sm:text-base leading-relaxed whitespace-pre-line px-2 text-start"
                   >
                     {{ selectedService.description }}
                   </p>

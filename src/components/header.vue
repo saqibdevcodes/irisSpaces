@@ -18,7 +18,7 @@
 
       <!-- Navigation Bar -->
       <nav
-        class="absolute top-0 left-0 right-0 z-50 px-4 py-4 sm:px-6 md:px-8 font-heading !bg-[#560216] shadow-2xl"
+        class="absolute top-0 left-0 right-0 z-50 px-4 py-4 sm:px-6 md:px-8 font-heading drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
       >
         <div class="flex items-center justify-between max-w-7xl mx-auto">
           <!-- Logo -->
@@ -162,7 +162,7 @@
         <h1
           v-if="route.path !== '/coffee'"
           :class="[
-            'text-6xl sm:text-5xl md:text-6xl lg:text-7xl font-bold border-2 sm:border-3 md:border-4 px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block backdrop-blur-[2px]',
+            'text-6xl sm:text-5xl md:text-6xl lg:text-7xl font-bold border-2 sm:border-3 md:border-4 px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]',
             h1ColorClasses,
           ]"
         >
@@ -227,8 +227,8 @@ const currentPageTitle = computed(
 );
 const h1ColorClasses = computed(() => {
   return isResearchConsult.value || route.path === "/workspaces"
-    ? "text-[#560216] border-[#560216]"
-    : "text-[#f0ebe1] border-[#f0ebe1]";
+    ? "text-white border-white "
+    : "text-[#f0ebe1] border-[#f0ebe1] ";
 });
 
 // Update isResearchConsult on mount and route changes

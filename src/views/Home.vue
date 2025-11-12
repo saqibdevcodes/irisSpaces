@@ -156,7 +156,6 @@
             <div
               class="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[800px] w-full lg:w-[90%] lg:order-1"
             >
-              <!-- Large Background Image - Full Size -->
               <div class="absolute inset-0">
                 <img
                   src="/images/n_img_3.jpg"
@@ -164,7 +163,6 @@
                   class="w-full h-full object-cover bg-left rounded-lg shadow-xl"
                 />
               </div>
-              <!-- Smaller Overlapping Image - Half Outside Bottom Right -->
               <div
                 class="absolute bottom-6 sm:bottom-8 md:bottom-12 -right-4 sm:-right-8 md:-right-16 lg:-right-32 w-[60%] sm:w-[65%] md:w-[70%] h-[35%] sm:h-[40%] md:h-[45%]"
               >
@@ -178,7 +176,7 @@
 
             <!-- Text on Right -->
             <div
-              class="space-y-4 sm:space-y-5 md:space-y-6 lg:order-2 lg:pl-12 lg:max-w-xl lg:pt-[0%]"
+              class="space-y-4 sm:space-y-5 md:space-y-6 lg:order-2 lg:pl-12 lg:max-w-3xl"
             >
               <h2
                 class="text-3xl sm:text-4xl md:text-5xl text-[#560216] font-bold"
@@ -186,13 +184,16 @@
                 SPACES THAT ELEVATE YOU
               </h2>
               <p
-                class="text-base sm:text-lg md:text-2xl text-gray-600 leading-relaxedd"
+                class="text-base sm:text-lg md:text-2xl text-gray-600 leading-relaxed"
               >
                 Every nook and corner is designed to help you work not just at
                 100%, but at 1000%. An environment that stimulates your mind,
                 sharpens your focus, and allows you to sit back and enjoy the
                 reflections that come to you.
+                <br /><br />
+                Discover a space designed to bring out your best.
               </p>
+
               <a
                 href="contact#booking_form_section"
                 class="pt-4 sm:pt-6 inline-block"
@@ -231,6 +232,8 @@
                 A space that doesn't confine you in a box, but expands your
                 ability to think, grow, and find balance between work and
                 wellness
+                <br /><br />
+                Work, unwind, and find your perfect balance.
               </p>
               <a
                 href="contact#booking_form_section"
@@ -466,24 +469,40 @@
                   class="w-full h-96 sm:h-80 md:h-96 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
+                <!-- Top Content (On Hover) -->
                 <div
-                  class="absolute bottom-0 left-0 right-0 p-4 md:p-6 backdrop-blur-[3px] m-[10px] flex flex-col items-center justify-end min-h-[150px] rounded-b-lg"
+                  class="absolute inset-3 sm:inset-4 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-[-20px] z-30"
                 >
-                  <h3 class="text-base font-bold mb-2 text-white text-center">
-                    {{ card.title }}
-                  </h3>
-                  <RouterLink
-                    :to="`/contact?service=${encodeURIComponent(
-                      card.title
-                    )}#booking_form_section`"
-                    class="inline-block w-full"
+                  <div
+                    class="bg-white rounded-lg p-4 sm:p-5 md:p-2 shadow-2xl h-full flex flex-col items-center justify-between overflow-y-auto"
                   >
-                    <button
-                      class="bg-[#560216] text-white w-full h-10 px-3 py-4 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#440114] transition-all"
+                    <div
+                      class="flex flex-col items-center justify-center w-full"
                     >
-                      Book Now
-                    </button>
-                  </RouterLink>
+                      <h3
+                        class="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-[#560216] text-center"
+                      >
+                        {{ card.title }}
+                      </h3>
+                      <p
+                        class="text-xs sm:text-sm md:text-sm text-gray-700 leading-relaxed whitespace-pre-line max-w-full"
+                      >
+                        {{ card.description }}
+                      </p>
+                    </div>
+                    <RouterLink
+                      :to="`/contact?service=${encodeURIComponent(
+                        card.title
+                      )}#booking_form_section`"
+                      class="inline-block w-full"
+                    >
+                      <button
+                        class="bg-[#560216] text-white w-full h-10 px-3 py-4 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#440114] transition-all cursor-pointer"
+                      >
+                        Book Now
+                      </button>
+                    </RouterLink>
+                  </div>
                 </div>
               </div>
             </div>
@@ -530,18 +549,18 @@
 
         <div class="relative z-10 text-center px-4 sm:px-6 mt-[14%]">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 text-[#f0ebe1] border-2 sm:border-3 md:border-4 border-[#f0ebe1] px-4 sm:px-6 md:px-8 lg:px-48 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 text-[#f0ebe1] border-2 sm:border-3 md:border-4 border-[#f0ebe1] px-4 sm:px-6 md:px-8 lg:px-48 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             GLOBAL IN SPIRIT
           </h1>
           <p
-            class="text-base sm:text-lg md:text-2xl opacity-90 text-white italic px-4"
+            class="text-base sm:text-lg md:text-2xl opacity-90 text-white italic px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             Spaces that are thoughtfully designed with a unique global ambiance
             for thinkers,
           </p>
           <p
-            class="text-base sm:text-lg md:text-2xl opacity-90 mb-6 sm:mb-8 text-white italic px-4"
+            class="text-base sm:text-lg md:text-2xl opacity-90 mb-6 sm:mb-8 text-white italic px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             Creators, and doers, unlike anything else in Pakistan.
           </p>
@@ -582,54 +601,105 @@ const serviceCards = ref([
     alt: "PRIVATE OFFICE SPACES",
     title: "PRIVATE OFFICE SPACES",
     link: "contact#booking_form_section",
+    description: `Small Office (4 persons)
+Medium Office (6–10 persons)
+Large Office (10–36 persons)
+
+ Amenities: Fully furnished, high-speed
+internet, utilities, mail handling,
+reception, cleaning, security, meeting
+room credits.`,
   },
   {
     image: "/images/floor_3_rest_area.jpg",
-    alt: "Coworking",
+    alt: "CUSTOMIZED MANAGED OFFICES",
     title: "CUSTOMIZED MANAGED OFFICES",
     link: "contact#booking_form_section",
+    description: `Fully customizable office space or
+entire floor (8–36 person capacity)
+Dedicated pantry & washrooms
+Exclusive amenities with premium
+membership option`,
   },
   {
     image: "/images/n_img_4.jpg",
-    alt: "Meeting Room",
+    alt: "CO-WORKING SPACES",
     title: "CO-WORKING SPACES",
     link: "contact#booking_form_section",
+    description: `Day Pass 
+Hot Desk
+Dedicated Desk 
+
+ Benefits: High-speed Wi-Fi, locker,
+mail handling, meeting room credits,
+community events, reception support.`,
   },
   {
     image: "/images/cafe_area_2.jpg",
-    alt: "Meeting Room",
+    alt: "TRAINING, EVENT, AND EXHIBITION SPACESm",
     title: "TRAINING, EVENT, AND EXHIBITION SPACES",
     link: "contact#booking_form_section",
+    image: "/images/cafe_area_2.jpg",
+    description: `Flexible event halls for 30–80 persons
+Suitable for training sessions,
+workshops, exhibitions, and corporate events
+
+ Pricing: Quotation on request`,
   },
   {
     image: "/images/conference_room_1.jpg",
     alt: "Meeting Room",
     title: "MEETING ROOMS",
     link: "contact#booking_form_section",
+    description: `Hourly Booking
+Half-Day (6 hrs),Full-Day (12 hrs)
+Types:
+Conference Rooms (8-person, AV,
+video conferencing)
+Iris Pods (1–2 persons, soundproof for
+calls/mentoring)
+Premium Boardroom (10-person,
+smart TV, whiteboards, high-speed
+internet)`,
   },
   {
     image: "/images/n_img_6.jpg",
     alt: "Meeting Room",
     title: "VIRTUAL DESK",
     link: "contact#booking_form_section",
+    description: `Business & mailing address service
+Pricing: Quotation on request`,
   },
   {
     image: "/images/n_img_12.jpg",
     alt: "Meeting Room",
     title: "FOCUS GROUP FACILITY",
     link: "contact#booking_form_section",
+    description: `Dedicated spaces for client research,
+consultations, and focus groups
+
+Pricing: Quotation on request`,
   },
   {
     image: "/images/n_img_5.jpg",
     alt: "Meeting Room",
     title: "CLT (CENTRAL LOCATION TEST) FACILITY",
     link: "contact#booking_form_section",
+    description: `Available as part of a premium membership
+Ideal for product/market research companies 
+
+Pricing: Quotation on request`,
   },
   {
     image: "/images/n_img_16.jpg",
     alt: "Meeting Room",
     title: "IRIS PODS",
     link: "contact#booking_form_section",
+    description: `Soundproof pods for private calls
+Mentoring sessions, and
+Focused one-to-one meetings.
+
+Pricing: Quotation on request`,
   },
 ]);
 

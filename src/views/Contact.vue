@@ -242,7 +242,7 @@
                 class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 text-white flex flex-col items-center justify-center transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2 z-10"
               >
                 <h3
-                  class="text-base sm:text-lg md:text-xl font-bold text-center"
+                  class="text-base sm:text-lg md:text-xl font-bold text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                 >
                   {{ service.title }}
                 </h3>
@@ -300,18 +300,18 @@
 
         <div class="relative z-10 text-center px-4 sm:px-6 mt-[14%]">
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 text-[#f0ebe1] border-2 sm:border-3 md:border-4 border-[#f0ebe1] px-4 sm:px-6 md:px-8 lg:px-48 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block"
+            class="drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-5 text-[#f0ebe1] border-2 sm:border-3 md:border-4 border-[#f0ebe1] px-4 sm:px-6 md:px-8 lg:px-48 py-3 sm:py-4 md:py-5 lg:py-6 uppercase tracking-wide sm:tracking-wider inline-block"
           >
             GLOBAL IN SPIRIT
           </h1>
           <p
-            class="text-base sm:text-lg md:text-2xl opacity-90 text-white italic px-4"
+            class="text-base sm:text-lg md:text-2xl opacity-90 text-white italic px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             Spaces that are thoughtfully designed with a unique global ambiance
             for thinkers,
           </p>
           <p
-            class="text-base sm:text-lg md:text-2xl opacity-90 mb-6 sm:mb-8 text-white italic px-4"
+            class="text-base sm:text-lg md:text-2xl opacity-90 mb-6 sm:mb-8 text-white italic px-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
             Creators, and doers, unlike anything else in Pakistan.
           </p>
@@ -527,23 +527,23 @@ const services = [
     title: "PRIVATE OFFICE SPACES",
     image: "/images/floor_pic_1.jpg",
     description: `Small Office (4 persons)
-Medium Office (6–10 persons)
-Large Office (10–36 persons)
+    Medium Office (6–10 persons)
+    Large Office (10–36 persons)
 
- Amenities: Fully furnished, high-speed
-internet, utilities, mail handling,
-reception, cleaning, security, meeting
-room credits.`,
+    Amenities: Fully furnished, high-speed
+    internet, utilities, mail handling,
+    reception, cleaning, security, meeting
+    room credits.`,
   },
   {
     id: 2,
     title: "CUSTOMIZED MANAGED OFFICES",
     image: "/images/floor_3_rest_area.jpg",
     description: `Fully customizable office space or
-entire floor (8–36 person capacity)
-Dedicated pantry & washrooms
-Exclusive amenities with premium
-membership option`,
+    entire floor (8–36 person capacity)
+    Dedicated pantry & washrooms
+    Exclusive amenities with premium
+    membership option`,
   },
   {
     id: 3,

@@ -23,8 +23,8 @@
             WHY CHOOSE US
           </h4>
           <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
-            Lifestyle & Wellness Productivity & Connectivity Infrastructure &
-            Support Value-Added Services
+            Lifestyle, Wellness Productivity, Connectivity Infrastructure,
+            Support & Value-Added Services.
           </p>
         </div>
 
@@ -54,18 +54,35 @@
           <div class="space-y-3 text-sm sm:text-base text-gray-700">
             <div>
               <p class="font-semibold text-gray-900">Address:</p>
-              <p>
+              <a
+                href="https://maps.google.com/?q=iris spaces"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-blue-600 transition-colors"
+              >
                 60D Commercial Broadway, <br />
                 DHA Phase 8, Lahore
-              </p>
+              </a>
             </div>
+
             <div>
               <p class="font-semibold text-gray-900">Phone:</p>
-              <p>0301-8112093</p>
+              <a
+                href="tel:03018112093"
+                class="hover:text-blue-600 transition-colors"
+              >
+                0301-8112093
+              </a>
             </div>
+
             <div>
               <p class="font-semibold text-gray-900">Email:</p>
-              <p>info@irispacespk.com</p>
+              <a
+                href="mailto:info@irispacespk.com"
+                class="hover:text-blue-600 transition-colors"
+              >
+                info@irispacespk.com
+              </a>
             </div>
           </div>
 
@@ -140,7 +157,7 @@
     <!-- Footer Bottom -->
     <div class="bg-black border-gray-200 flex items-center justify-center p-4">
       <p class="text-xs sm:text-sm text-white text-center">
-        © 2025 Iris Spaces. All rights reserved.
+        © {{ new Date().getFullYear() }} Iris Spaces. All rights reserved.
       </p>
     </div>
   </footer>
