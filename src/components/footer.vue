@@ -78,23 +78,26 @@
             <div>
               <p class="font-semibold text-gray-900">Email:</p>
               <a
-                href="mailto:info@irispacespk.com"
+                href="mailto:sales@irisspacespk.com"
                 class="hover:text-blue-600 transition-colors"
               >
-                info@irispacespk.com
+                sales@irisspacespk.com
               </a>
             </div>
           </div>
 
           <!-- Social Icons -->
-          <div class="flex space-x-4 pt-4">
+          <div class="flex space-x-2 pt-4">
+            <!-- Instagram -->
             <a
               href="https://www.instagram.com/irisspacespk/"
-              class="text-gray-500 hover:text-[#560216] transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400 hover:text-white"
               aria-label="Instagram"
             >
               <svg
-                class="w-5 h-5 sm:w-6 sm:h-6"
+                class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -103,13 +106,17 @@
                 />
               </svg>
             </a>
+
+            <!-- Facebook -->
             <a
               href="https://web.facebook.com/irisspacespk"
-              class="text-gray-500 hover:text-[#560216] transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-[#1877F2] hover:text-white"
               aria-label="Facebook"
             >
               <svg
-                class="w-5 h-5 sm:w-6 sm:h-6"
+                class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -118,13 +125,17 @@
                 />
               </svg>
             </a>
+
+            <!-- LinkedIn -->
             <a
               href="http://linkedin.com/company/irisspacespk"
-              class="text-gray-500 hover:text-[#560216] transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-[#0A66C2] hover:text-white"
               aria-label="LinkedIn"
             >
               <svg
-                class="w-5 h-5 sm:w-6 sm:h-6"
+                class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -133,15 +144,17 @@
                 />
               </svg>
             </a>
+
+            <!-- Twitter/X -->
             <a
               href="https://x.com/irisspacespk"
-              class="text-gray-500 hover:text-[#560216] transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
+              class="group relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:bg-black hover:text-white"
               aria-label="Twitter/X"
             >
               <svg
-                class="w-5 h-5 sm:w-6 sm:h-6"
+                class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >

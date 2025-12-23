@@ -169,7 +169,7 @@
                 <img
                   src="/images/n_img_13.jpg"
                   alt="Coworking Detail"
-                  class="w-full h-full object-cover rounded-lg shadow-2xl border-2 sm:border-3 md:border-4 border-white"
+                  class="w-full h-full object-cover rounded-lg shadow-2xl border-2 sm:border-3 md:border-4 border-white rotate-90"
                 />
               </div>
             </div>
@@ -401,7 +401,7 @@
                 <img
                   src="/images/n_img_9.jpg"
                   alt="Virtual Office Detail"
-                  class="w-full h-full object-cover rounded-lg shadow-2xl border-2 sm:border-3 md:border-4 border-white"
+                  class="w-full h-full object-cover rounded-lg shadow-2xl border-2 sm:border-3 md:border-4 border-white rotate-90"
                 />
               </div>
             </div>
@@ -583,8 +583,8 @@ import { useRouter } from "vue-router";
 import Layout from "../layout/layout.vue";
 // Slider data
 const sliderImages = ref([
-  "/images/cafe_area_3.jpg",
   "/images/n_img_14.jpg",
+  "/images/cafe_area_3.jpg",
   "/images/n_img_7.jpg",
   "/images/floor_1_hall.jpg",
 
