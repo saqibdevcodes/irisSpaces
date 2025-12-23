@@ -92,6 +92,10 @@
                   {{ errors.fullName }}
                 </p>
               </div>
+
+              
+
+
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2"
                   >Email Address *</label
@@ -113,6 +117,8 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2"
                   >Contact Number *</label
@@ -134,6 +140,36 @@
                   {{ errors.contactNumber }}
                 </p>
               </div>
+
+
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Company Name *</label
+                >
+                <input
+                  v-model="formData.companyName"
+                  type="text"
+                  required
+                  :class="[
+                    'w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#560216] focus:border-transparent',
+                    errors.companyName ? 'border-red-500' : 'border-gray-300',
+                  ]"
+                  @blur="validateField('companyName')"
+                />
+                <p v-if="errors.companyName" class="text-red-500 text-sm mt-1">
+                  {{ errors.companyName }}
+                </p>
+              </div>
+
+
+              
+             
+            </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2"
                   >Requirements *</label
@@ -172,7 +208,80 @@
                   {{ errors.requirements }}
                 </p>
               </div>
+
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Total Number of Seats / Space
+                </label>
+
+                <div class="flex items-center border rounded-lg overflow-hidden"
+                    :class="errors.totalSeats ? 'border-red-500' : 'border-gray-300'">
+
+                  <!-- Decrease -->
+                  <button
+                    type="button"
+                    class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-lg font-semibold"
+                    @click="decreaseSeats"
+                    :disabled="formData.totalSeats <= 0"
+                  >
+                    −
+                  </button>
+
+                  <!-- Input -->
+                  <input
+                    v-model.number="formData.totalSeats"
+                    type="number"
+                    min="0"
+                    class="w-full text-center py-3 outline-none focus:ring-2 focus:ring-[#560216]"
+                    @blur="validateField('totalSeats')"
+                  />
+
+                  <!-- Increase -->
+                  <button
+                    type="button"
+                    class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-lg font-semibold"
+                    @click="increaseSeats"
+                  >
+                    +
+                  </button>
+                </div>
+
+                <p v-if="errors.totalSeats" class="text-red-500 text-sm mt-1">
+                  {{ errors.totalSeats }}
+                </p>
+              </div>
+
+
             </div>
+
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >When Do You Possibly Require The Space:</label
+              >
+              <input
+                v-model="formData.spaceRequiredDate"
+                type="date"
+                :min="minDate"
+                :class="[
+                  'w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#560216] focus:border-transparent',
+                  errors.spaceRequiredDate
+                    ? 'border-red-500'
+                    : 'border-gray-300',
+                ]"
+                @blur="validateField('spaceRequiredDate')"
+                @change="validateField('spaceRequiredDate')"
+              />
+              <p
+                v-if="errors.spaceRequiredDate"
+                class="text-red-500 text-sm mt-1"
+              >
+                {{ errors.spaceRequiredDate }}
+              </p>
+            </div>
+
+            
 
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-2"
@@ -329,27 +438,53 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 import Layout from "../layout/layout.vue";
 import axios from "axios";
+
+// Get today's date in YYYY-MM-DD format for date input min attribute
+const minDate = computed(() => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+});
+
 // Form state
 const formData = ref({
   fullName: "",
+  companyName: "",
+  totalSeats: 0,
   email: "",
   contactNumber: "",
   requirements: "",
   additionalDetails: "",
+  spaceRequiredDate: "",
 });
 
 const errors = ref({
   fullName: "",
+  companyName: "",
   email: "",
   contactNumber: "",
+  totalSeats: 0,
   requirements: "",
   additionalDetails: "",
+  spaceRequiredDate: "",
 });
 
+
+const increaseSeats = () => {
+  formData.value.totalSeats++;
+};
+
+const decreaseSeats = () => {
+  if (formData.value.totalSeats > 0) {
+    formData.value.totalSeats--;
+  }
+};
 const isSubmitting = ref(false);
 const submitSuccess = ref(false);
 const submitError = ref("");
@@ -374,15 +509,34 @@ const validateField = (fieldName) => {
   const value = formData.value[fieldName];
 
   switch (fieldName) {
-    case "fullName":
+      case "fullName":
+        if (!value || value.trim().length < 2) {
+          errors.value.fullName = "Full name must be at least 2 characters";
+        } else if (value.length > 100) {
+          errors.value.fullName = "Full name must be less than 100 characters";
+        } else {
+          errors.value.fullName = "";
+        }
+        break;
+
+    case "companyName":
       if (!value || value.trim().length < 2) {
-        errors.value.fullName = "Full name must be at least 2 characters";
+        errors.value.companyName = "Company name must be at least 2 characters";
       } else if (value.length > 100) {
-        errors.value.fullName = "Full name must be less than 100 characters";
+        errors.value.companyName = "Company name must be less than 100 characters";
       } else {
-        errors.value.fullName = "";
+        errors.value.companyName = "";
       }
       break;
+
+    case "totalSeats":
+      if (value === null || value === undefined || value < 0) {
+        errors.value.totalSeats = "Total seats cannot be negative";
+      } else {
+        errors.value.totalSeats = "";
+      }
+      break;
+
 
     case "email":
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -421,16 +575,39 @@ const validateField = (fieldName) => {
         errors.value.additionalDetails = "";
       }
       break;
+
+    case "spaceRequiredDate":
+      if (!value || !value.trim()) {
+        // Allow empty - field is optional
+        errors.value.spaceRequiredDate = "";
+      } else {
+        // Validate that the date is from today onward
+        const selectedDate = new Date(value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        selectedDate.setHours(0, 0, 0, 0);
+        
+        if (isNaN(selectedDate.getTime())) {
+          errors.value.spaceRequiredDate = "Please enter a valid date";
+        } else if (selectedDate < today) {
+          errors.value.spaceRequiredDate = "Date must be from today onward";
+        } else {
+          errors.value.spaceRequiredDate = "";
+        }
+      }
+      break;
   }
 };
 
 const validateForm = () => {
   validateField("fullName");
+  validateField("companyName");
   validateField("email");
   validateField("contactNumber");
+  validateField("totalSeats");
   validateField("requirements");
   validateField("additionalDetails");
-
+  validateField("spaceRequiredDate");
   return !Object.values(errors.value).some((error) => error !== "");
 };
 
@@ -453,10 +630,13 @@ const handleSubmit = async () => {
       `${import.meta.env.VITE_API_URL}/api/contact/submit`,
       {
         full_name: formData.value.fullName.trim(),
+        company_name: formData.value.companyName.trim(),
         email: formData.value.email.trim(),
         contact_number: formData.value.contactNumber.trim(),
+        total_seats: formData.value.totalSeats,
         requirements: formData.value.requirements,
         additionalDetails: formData.value.additionalDetails?.trim() || "",
+        space_required_date: formData.value.spaceRequiredDate?.trim() || "",
       }
     );
 
@@ -468,11 +648,14 @@ const handleSubmit = async () => {
       // Reset form
       formData.value = {
         fullName: "",
+        companyName: "",
         email: "",
         contactNumber: "",
+        totalSeats: 0,
         requirements: "",
         additionalDetails: "",
-      };
+        spaceRequiredDate: "",
+        };
 
       // Scroll to top to show success message
       window.scrollTo({ top: 0, behavior: "smooth" });
